@@ -87,7 +87,7 @@
 <meta property="og:description" content="一、创建Github 域名和空间1.注册首先注册一个Github账号，注意username，域名将会是 username.github.io 。 2.创建仓库然后需要创建一个仓库(repository) 来存储网站，点击首页任意位置出现的 New repository按钮创建仓库, Respository name 中的username.github.io 的username 一定与前面的Owne">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf518www/imgs/master/%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA/%E6%B3%A8%E5%86%8CGitHub.png">
-<meta property="og:updated_time" content="2018-08-15T06:01:59.769Z">
+<meta property="og:updated_time" content="2018-08-15T06:04:29.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows环境下利用Github和Hexo部署博客">
 <meta name="twitter:description" content="一、创建Github 域名和空间1.注册首先注册一个Github账号，注意username，域名将会是 username.github.io 。 2.创建仓库然后需要创建一个仓库(repository) 来存储网站，点击首页任意位置出现的 New repository按钮创建仓库, Respository name 中的username.github.io 的username 一定与前面的Owne">
@@ -126,7 +126,21 @@
 
 
 
-
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
   <title>Windows环境下利用Github和Hexo部署博客 | wyf的小白之路</title>
   
 
@@ -307,7 +321,7 @@
 <h3 id="2-安装Nodejs"><a href="#2-安装Nodejs" class="headerlink" title="2.安装Nodejs"></a>2.安装Nodejs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://nodejs.cn/download/</span><br></pre></td></tr></table></figure>
 <h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <h2 id="三、编写、发布"><a href="#三、编写、发布" class="headerlink" title="三、编写、发布"></a>三、编写、发布</h2><p>接下来用Hexo初始化一个博客，然后更改一些自定义的配置，或者加上主题，写上第一篇文章，然后发布到个人Github网站(username.github.io)。</p>
-<h3 id="1-创建博客"><a href="#1-创建博客" class="headerlink" title="1.创建博客"></a>1.创建博客</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo i blog  //这里blog指的是项目名称  i等同于init</span><br><span class="line">   cd blog      //进入bolg这个文件下</span><br><span class="line">   hexo g       //generetor的缩写</span><br><span class="line">   hexo s       //server的缩写</span><br></pre></td></tr></table></figure>
+<h3 id="1-创建博客"><a href="#1-创建博客" class="headerlink" title="1.创建博客"></a>1.创建博客</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo i blog  //这里blog指的是项目名称  i等同于init</span><br><span class="line">cd blog      //进入bolg这个文件下</span><br><span class="line">hexo g       //generetor的缩写</span><br><span class="line">hexo s       //server的缩写</span><br></pre></td></tr></table></figure>
 <p>然后打开  <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>  就可以查看啦</p>
 <h3 id="2-更改配置"><a href="#2-更改配置" class="headerlink" title="2.更改配置"></a>2.更改配置</h3><p>为了使博客不太难看，需要安装一个主题，切换至刚刚生成的Hexo 目录，安装主题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd username.github.io</span><br><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></p>
 <p>这里选了一个极简的主题，也是Hexo众多主题中最受欢迎的一个。Hexo也有更多主题供选择。<br>基础配置：打开文件位置username.github.io/_config.yml修改几个键值对，下面把几个必须设置的列出来按需求修改，记得保存， 还有注意配置的键值之间一定要有空格。更多设置…<br>title: dimsky 的 9 维空间 //你博客的名字<br>author: dimsky //你的名字<br>language: zh-Hans //语言 中文<br>theme: next //刚刚安装的主题名称<br>deploy:<br>type: git //使用Git 发布<br>repo: <a href="https://github.com/username/username.github.io.git" target="_blank" rel="noopener">https://github.com/username/username.github.io.git</a> // 刚创建的Github仓库<br>主题配置：<br>主题配置文件在username.github.io/themes/next/_config.yml中修改，这里略过。<br>改好了以后再终端输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  //清除缓存</span><br><span class="line">hexo g      //重新生成</span><br><span class="line">hexo s      //部署到本地</span><br></pre></td></tr></table></figure></p>
@@ -321,7 +335,15 @@
     
     
     
-
+	<div>
+		
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
     
 
     
@@ -465,7 +487,12 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
