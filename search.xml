@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[小白博主其人其事]]></title>
+    <url>%2F2018%2F08%2F15%2F%E5%8D%9A%E4%B8%BB%2F</url>
+    <content type="text"><![CDATA[2018年3月底，正式从一个画图狗转为程序猿。真正从事这个工作之后发现，自己之前自学的C#/C++/Unity3d之类的简直太肤浅。这几个月恶补各种码农知识，越学发现需要学习的就越多。自此开通一个博客，记录小白的学习之路。]]></content>
+      <categories>
+        <category>杂记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows环境下利用Github和Hexo部署博客]]></title>
+    <url>%2F2018%2F08%2F15%2F%E5%8D%9A%E5%AE%A2%E5%88%9B%E5%BB%BA%2F</url>
+    <content type="text"><![CDATA[一、创建Github 域名和空间1.注册首先注册一个Github账号，注意username，域名将会是 username.github.io 。 2.创建仓库然后需要创建一个仓库(repository) 来存储网站，点击首页任意位置出现的 New repository按钮创建仓库, Respository name 中的username.github.io 的username 一定与前面的Owner 一致。 二、安装1.安装Git1https://git-scm.com/download/win 2.安装Nodejs1http://nodejs.cn/download/ 3.安装Hexo1npm install hexo-cli -g 三、编写、发布接下来用Hexo初始化一个博客，然后更改一些自定义的配置，或者加上主题，写上第一篇文章，然后发布到个人Github网站(username.github.io)。 1.创建博客1234hexo i blog //这里blog指的是项目名称 i等同于initcd blog //进入bolg这个文件下hexo g //generetor的缩写hexo s //server的缩写 然后打开 http://localhost:4000 就可以查看啦 2.更改配置为了使博客不太难看，需要安装一个主题，切换至刚刚生成的Hexo 目录，安装主题12cd username.github.iogit clone https://github.com/iissnan/hexo-theme-next themes/next 这里选了一个极简的主题，也是Hexo众多主题中最受欢迎的一个。Hexo也有更多主题供选择。基础配置：打开文件位置username.github.io/_config.yml修改几个键值对，下面把几个必须设置的列出来按需求修改，记得保存， 还有注意配置的键值之间一定要有空格。更多设置…title: dimsky 的 9 维空间 //你博客的名字author: dimsky //你的名字language: zh-Hans //语言 中文theme: next //刚刚安装的主题名称deploy:type: git //使用Git 发布repo: https://github.com/username/username.github.io.git // 刚创建的Github仓库主题配置：主题配置文件在username.github.io/themes/next/_config.yml中修改，这里略过。改好了以后再终端输入123hexo clean //清除缓存hexo g //重新生成hexo s //部署到本地 3.写文章所有基础框架都已经创建完成，接下来可以开始写博客了在username.github.io/source/_posts下创建一个博客，例如，创建一个名为FirstBlog.md的文件，用Markdown编写，注意保存。 5.安装hexo-deployer-git自动部署发布工具1npm install hexo-deployer-git --save 6.发布测试没问题后，生成静态网页文件发布至Github pages 中。1hexo clean &amp;&amp; hexo g &amp;&amp; hexo d 如果这是第一次，终端会让输入Github的邮箱和密码，正确输入后，就会把博客上传至Github了。以后在每次把博客写完后，执行一下这个命令就可以直接发布了。在浏览器中输入 https://username.github.io 就能够访问了。]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+</search>
