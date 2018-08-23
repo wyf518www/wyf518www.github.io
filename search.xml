@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[revit二次开发-关于BuiltInParameter]]></title>
+    <url>%2F2018%2F08%2F23%2Frevit%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91-%E5%85%B3%E4%BA%8EBuiltinParameter%2F</url>
+    <content type="text"><![CDATA[最近在做幕墙的类型新建以及复制时发现，大多数参数都要通过BuiltInParameter来读取和修改。然而以前看过的一些文章是说BuiltInParameter的参数大都通过经验积累。其实并不然，正如构件的Parameters可以通过LookUp来查看，一些其他的element（例如墙类型，嵌板类型）的parameters也是可以通过LookUp来获取的，只不过需要在Snoop DB中找到对应的element。]]></content>
+      <categories>
+        <category>revit二次开发</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[revit二次开发-幕墙嵌板的修改]]></title>
     <url>%2F2018%2F08%2F15%2Frevit%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91-%E5%B9%95%E5%A2%99%E5%B5%8C%E6%9D%BF%E7%9A%84%E4%BF%AE%E6%94%B9%2F</url>
     <content type="text"><![CDATA[Revit的幕墙嵌板是可以自定义的，可以是嵌板族（panel）或者是墙（wall），这两种在幕墙里都称为 curtain Panel。但是如果在幕墙嵌板属性面板里勾选了幕墙嵌板的话，所有的嵌板会被幕墙托管，无法修改：需要手动解除锁定才能更改嵌板：同理，在API中找到嵌板的element之后，也要解锁才能修改：123456Element ele = doc.GetElement(refe); //选择的嵌板ele.Pinned = false; //把嵌板解除锁定Panel dc = ele as Panel; //转换成嵌板Element wallEle=dc.Host; //找到嵌板所在的墙体Wall wall = wallEle as Wall;wall.CurtainGrid.ChangePanelType(dc,wallType); //修改嵌板为wallType类型]]></content>
