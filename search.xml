@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[revit二次开发-VS调试时无法看变量的值]]></title>
+    <url>%2F2018%2F10%2F24%2Frevit%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91-Revit%E8%B0%83%E8%AF%95%E6%97%A0%E6%B3%95%E8%B7%9F%E8%B8%AA%2F</url>
+    <content type="text"><![CDATA[前段时间一直在做结构平台到Revit平台的数据转换工作，一直没有更新博客，以后找机会会补上。今天再打开Revit建筑工程时，发现调试看不到变量值了。经过查找发现是Revit加载其他插件的兼容性问题（如橄榄山）。VS2013由于引进了新的一些调试功能，导致对旧的一些调试模式不支持了。严格的是说是VS新版带来的问题，微软在以后的更新版本中计划要修正这个问题。比如安装橄榄山快模后，会出现无法调试的问题；国内的另一个算量软件也会有这个VS兼容性问题。（原因是这两个软件都是用了同一个第三方软件的dll）这时候有一个解决办法那就是修改VS2013或2015 里面的一个设置。将调试的模式使用原来的调试模式，这样也会失去VS2013新的调试工具带来的强大功能。选项-》调试-》把“使用托管兼容模式”这个选项勾上。确认修改，然后调试就可以了。如下图 这个选项是VS2013之后引入到VS的新功能，这也是VS目前没有办法的办法，未来这个选项会消失。，具体功能请参看这篇文章：https://blogs.msdn.microsoft.com/devops/2013/10/16/switching-to-managed-compatibility-mode-in-visual-studio-2013/]]></content>
+      <categories>
+        <category>revit二次开发</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[revit二次开发-关于BuiltInParameter]]></title>
     <url>%2F2018%2F08%2F23%2Frevit%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91-%E5%85%B3%E4%BA%8EBuiltinParameter%2F</url>
     <content type="text"><![CDATA[最近在做幕墙的类型新建以及复制时发现，大多数参数都要通过BuiltInParameter来读取和修改。然而以前看过的一些文章是说BuiltInParameter的参数大都通过经验积累。其实并不然，正如构件的Parameters可以通过LookUp来查看，一些其他的element（例如墙类型，嵌板类型）的parameters也是可以通过LookUp来获取的，只不过需要在Snoop DB中找到对应的element。]]></content>
@@ -14,14 +22,6 @@
     <content type="text"><![CDATA[Revit的幕墙嵌板是可以自定义的，可以是嵌板族（panel）或者是墙（wall），这两种在幕墙里都称为 curtain Panel。但是如果在幕墙嵌板属性面板里勾选了幕墙嵌板的话，所有的嵌板会被幕墙托管，无法修改：需要手动解除锁定才能更改嵌板：同理，在API中找到嵌板的element之后，也要解锁才能修改：123456Element ele = doc.GetElement(refe); //选择的嵌板ele.Pinned = false; //把嵌板解除锁定Panel dc = ele as Panel; //转换成嵌板Element wallEle=dc.Host; //找到嵌板所在的墙体Wall wall = wallEle as Wall;wall.CurtainGrid.ChangePanelType(dc,wallType); //修改嵌板为wallType类型]]></content>
       <categories>
         <category>revit二次开发</category>
-      </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[小白博主其人其事]]></title>
-    <url>%2F2018%2F08%2F15%2F%E5%8D%9A%E4%B8%BB%2F</url>
-    <content type="text"><![CDATA[2018年3月底，正式从一个画图狗转为程序猿。真正从事这个工作之后发现，自己之前自学的C#/C++/Unity3d之类的简直太肤浅。这几个月恶补各种码农知识，越学发现需要学习的就越多。自此开通一个博客，记录小白的学习之路。]]></content>
-      <categories>
-        <category>杂记</category>
       </categories>
   </entry>
   <entry>
